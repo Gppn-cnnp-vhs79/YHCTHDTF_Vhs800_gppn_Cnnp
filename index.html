@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Midnight Train</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      overflow: auto;
+      text-align: center;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+    }
+    /* Title styling: clickable but not underlined */
+    #title {
+      font-size: 30px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .hidden {
+      display: none;
+    }
+    input, button {
+      background-color: white;
+      color: black;
+      padding: 10px;
+      border: none;
+      font-size: 16px;
+      margin: 10px;
+    }
+    .text-content {
+      text-align: left;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+    /* Nearly invisible, non-copyable text */
+    .hidden-text {
+      color: #0a0a0a; /* almost black on black background */ 
+      user-select: none;
+      pointer-events: none;
+      margin-top: 10px;
+    }
+    /* Scary "LEAVE" animation styling */
+    .scary-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: red;
+      text-transform: uppercase;
+      display: inline-block;
+      white-space: nowrap;
+      opacity: 0;
+      animation: typeEffect 1s linear forwards, shake 0.2s infinite alternate;
+    }
+    @keyframes typeEffect {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes shake {
+      0% { transform: translateX(-2px) rotate(-1deg); }
+      100% { transform: translateX(2px) rotate(1deg); }
+    }
+    /* Fake crash overlay styling */
+    #fakeCrash {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: red;
+      font-size: 24px;
+      text-align: center;
+      padding-top: 20%;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Story Section (Visible Initially) -->
+    <div id="story" class="text-content">
+      <h1 id="title" onclick="showInput()">The Midnight Train</h1>
+      <p>It was a foggy evening when Oliver boarded the midnight train. The air felt thick, heavy with the promiSe of an adventure that neIther he nor anyone else could eXplain. The TraIn station was quiEt, savE for the distaNt hum of the clock tower striking midnight. He looked at the ticket in his hand—it was an old-fAshioned one, written in eleEant cursive. There was no destination listed, just a simPle instructiOn: "Board the train. See where it leads."</p>
+      <p>Oliver hesitated for a moment, then stePped onto the train. The inside was dimly lit, with old wooden paneling and plusE velvet seats that seemed out of place for modern times. The train car was nearly empty, except for a few passenGers whO sat in silencE, their faces hidden in the shadows.</p>
+      <p>He took a seat by the window, feeling the coolness of the glass against his skin. The train slowly began to move, pulling away from the station, and Oliver watched as the platform blurred in the distance. For some reason, he felt as though he’d been here before, but he couldn’t quite place when or why.</p>
+      <p>As the train gained speed, the lights flickered, casting strange shadows on the walls. The sound of the wheels clicking against the tracks grew louder, almost hypnotic. Oliver looked around the car again. There was an elderly woman sitting in the back, a young man with a guitar case by the door, and a child with bright blue eyes sitting alone in the middle. No one spoke, yet the air was thick with a sense of unspoken understanding.</p>
+      <p>The train moVed througH the darkened countrySide, the landscape outside now a blur of dark trees and rolling hills. Then, it entered a tunnel, and the world outside vanished 91 complete days. The air grew colder, and Oliver shivered. He glanced at the other passengers, but none of them seemed to notice. The tunnel stretched on, and for a moment, it felt like time had stopped entirely.</p>
+      <p>Suddenly, the lights inside the train went out.</p>
+      <p>Oliver’s heart skipped a beat. He could barely make out the shapes of the other passengers in the darkness. He heard a faint sound—footsteps—slow and deliberate, approaching from the back of the train. The sound grew louder, and then, in the pitch-black, a voice called out, “Oliver.”</p>
+      <p>His pulse quickened. How did they know his name? He hadn’t spoken to anyone on the train. He tried to speak but found himself unable to form words.</p>
+      <p>The footsteps continued, drawing closer. The voice came again, softer this time, almost a whisper. “Don’t be afraid. You’ve been chosen.”</p>
+      <p>A small light flickered in the distance, and Oliver felt a hand on his shoulder. He turned around quickly, but there was no one there. The train was empty. He was alone.</p>
+      <p>The light flickered once more, and as it did, the tunnel walls around them started to change. Instead of the familiar gray rock, the walls shimmered like liquid, morphing into something that felt both ancient and new. It was as if the train was no longer bound by the tracks, drifting into a space between time and reality.</p>
+      <p>The train emerged from the tunnel just as quickly as it had entered, and Oliver found himself staring out the window. The fog was gone, replaced by a landscape he didn’t recognize—mountains, rivers, and an eerie, golden light that seemed to pulse from the very ground.</p>
+      <p>The young man with the guitar case stood up, brushing past Oliver. He looked at him with a knowing smile. “Welcome to the other side,” he said, and for the first time, Oliver understood what he had meant.</p>
+      <p>The train slowed and finally stopped in a place that defied logic. Oliver stepped out into the unknown, knowing he would never be the same again.</p>
+    </div>
+
+    <!-- Code Input Section (Initially Hidden) -->
+    <div id="inputSection" class="hidden">
+      <p>Enter the code to proceed:</p>
+      <input type="text" id="codeInput">
+      <button onclick="checkCode()">Submit</button>
+    </div>
+
+    <!-- Riddle Section (Initially Hidden) -->
+    <div id="riddleSection" class="hidden">
+      <p>I have no face, yet I watch with dread,<br>
+         In forestS deep where few have tread.<br>
+         I stand so tall, with arMs so widE<br>
+         In emPty whispers, I do hide.</p>
+      <p>No eyes to see, yet you feel my gazE,<br>
+         Lost In my woods, trapped in the haze.<br>
+         You’ll hear no steps, n0 breath, no sound,<br>
+         Yet turn too late—I’m all around.</p>
+      <p><strong>What am I?</strong></p>
+      <input type="text" id="riddleInput">
+      <button onclick="checkRiddle()">Submit</button>
+    </div>
+
+    <!-- Final Answer Section (Initially Hidden) -->
+    <div id="finalSection" class="hidden">
+      <p>Mary_Muth_VHS45</p>
+      <p id="hiddenText" class="hidden-text">MYSTRY_KILLER_LOG56_MVP4</p>
+      <div id="leaveContainer"></div>
+    </div>
+  </div>
+
+  <!-- Fake Crash Overlay (Initially Hidden) -->
+  <div id="fakeCrash" class="hidden">SYSTEM ERROR: UNABLE TO RECOVER. PLEASE RESTART.</div>
+
+  <script>
+    // When the title is clicked, hide the story and show the code input section.
+    function showInput() {
+      document.getElementById('story').classList.add('hidden');
+      document.getElementById('inputSection').classList.remove('hidden');
+    }
+    
+    // Check the code input (expects "SIXTEEN_PEGOE_VHS91", case-insensitive)
+    function checkCode() {
+      var code = document.getElementById('codeInput').value.trim().toUpperCase();
+      if (code === "SIXTEEN_PEGOE_VHS91") {
+        document.getElementById('inputSection').classList.add('hidden');
+        document.getElementById('riddleSection').classList.remove('hidden');
+      } else {
+        alert("Incorrect code. Try again.");
+      }
+    }
+    
+    // Check the riddle answer (expects "slender man", case-insensitive)
+    function checkRiddle() {
+      var answer = document.getElementById('riddleInput').value.toLowerCase().trim();
+      if (answer === "slender man") {
+        document.getElementById('riddleSection').classList.add('hidden');
+        document.getElementById('finalSection').classList.remove('hidden');
+        startLeaveAnimation();
+        setTimeout(triggerFakeCrash, 10000); // Trigger fake crash after 10 seconds
+      } else {
+        alert("Incorrect answer. Try again.");
+      }
+    }
+    
+    // Start the "LEAVE" animation: display "LEAVE" 40 times with a shake effect.
+    function startLeaveAnimation() {
+      var container = document.getElementById('leaveContainer');
+      container.innerHTML = "";
+      for (var i = 0; i < 40; i++) {
+        var span = document.createElement('span');
+        span.className = 'scary-text';
+        span.style.animationDelay = (i * 0.05) + 's';
+        span.textContent = 'LEAVE';
+        container.appendChild(span);
+        container.appendChild(document.createElement('br'));
+      }
+    }
+    
+    // Trigger a fake crash overlay that prevents further interaction.
+    function triggerFakeCrash() {
+      document.body.innerHTML = "";
+      var crashOverlay = document.createElement('div');
+      crashOverlay.id = 'fakeCrash';
+      crashOverlay.textContent = "SYSTEM ERROR: UNABLE TO RECOVER. PLEASE RESTART.";
+      document.body.appendChild(crashOverlay);
+      crashOverlay.style.display = 'block';
+    }
+  </script>
+</body>
+  </html>
